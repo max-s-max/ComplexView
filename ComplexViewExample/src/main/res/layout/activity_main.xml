@@ -126,6 +126,7 @@
     </com.blure.complexview.ComplexView>
 
     <com.blure.complexview.ComplexView
+        android:id="@+id/big"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
@@ -153,12 +154,14 @@
             <com.blure.complexview.ComplexView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_margin="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
                 android:padding="10dp"
                 app:bottomLeftRadius="20dp"
                 app:bottomRightRadius="20dp"
-                app:color="#fdfcfc"
-                >
+                app:color="#fdfcfc">
 
                 <com.blure.complexview.ComplexView
                     android:layout_width="wrap_content"
@@ -194,9 +197,9 @@
                         android:layout_height="100dp"
                         android:layout_marginStart="-10dp"
                         android:layout_marginTop="15dp"
-                        android:rotation="-10"
                         android:layout_marginEnd="10dp"
                         android:layout_toEndOf="@id/s"
+                        android:rotation="-10"
                         app:color="#B388FF"
                         app:radius="20dp">
 

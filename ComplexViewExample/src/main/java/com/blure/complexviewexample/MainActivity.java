@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.blure.complexview.ComplexView;
@@ -37,6 +35,8 @@ public class MainActivity extends Activity {
         Shadow shadow = new Shadow(1, 100, "#000000", GradientDrawable.RECTANGLE, radii, Shadow.Position.CENTER);
         complexView.setShadow(shadow);
         vg.addView(complexView);
+
+        ((ComplexView)findViewById(R.id.big)).setShadowColor("#ffff00");
     }
 
 }

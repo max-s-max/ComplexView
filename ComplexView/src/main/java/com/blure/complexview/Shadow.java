@@ -38,13 +38,14 @@ public class Shadow {
         this.color = color.replace("#", "");
         this.shape = shape;
         this.position = position;
-        init();
+        init(true);
     }
 
-
-    private void init() {
+    private void init(boolean first) {
         int hex = 0;
-        spread *= 14;
+        if (first) {
+            spread *= 14;
+        }
         InsetDrawable[] gradientDrawables = new InsetDrawable[spread];
         int padding = 1;
         boolean center = position == Position.CENTER;
@@ -78,6 +79,11 @@ public class Shadow {
         }
         shadow = new LayerDrawable(gradientDrawables);
         shadow.setAlpha(opacity);
+    }
+
+    public void setShadowColor(String shadowHexColor) {
+        this.color = shadowHexColor.replace("#", "");
+        init(false);
     }
 
     /**

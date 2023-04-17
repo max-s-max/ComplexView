@@ -291,6 +291,18 @@ public class ComplexView extends RelativeLayout implements View.OnClickListener,
         setBackground(shadow.getShadow());
     }
 
+    /**
+     * Sets the shadow color of ComplexView
+     *
+     * @param shadowColorHex shadow color in hex format, for example #000000
+     */
+    public void setShadowColor(String shadowColorHex) {
+        if (shadow != null) {
+            this.shadow.setShadowColor(shadowColorHex);
+            setBackground(this.shadow.getShadow());
+        }
+    }
+
 
     public float getToXScale() {
         return toXScale;
