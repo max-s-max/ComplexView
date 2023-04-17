@@ -38,20 +38,19 @@ public class Shadow {
         this.color = color.replace("#", "");
         this.shape = shape;
         this.position = position;
-        init(true);
+        init();
     }
 
-    private void init(boolean first) {
+    private void init() {
         int hex = 0;
-        if (first) {
-            spread *= 14;
-        }
-        InsetDrawable[] gradientDrawables = new InsetDrawable[spread];
+        int spreadUse = spread;
+        spreadUse *= 14;
+        Drawable[] gradientDrawables = new Drawable[spreadUse];
         int padding = 1;
         boolean center = position == Position.CENTER;
         Orientation orientation = getOrientation(position);
 
-        for (int i = 0, step = 0; i < spread; ++i) {
+        for (int i = 0, step = 0; i < spreadUse; ++i) {
             GradientDrawable drawable = new GradientDrawable();
             drawable.setShape(shape);
             drawable.setGradientType(shape);
@@ -70,20 +69,26 @@ public class Shadow {
             }
             drawable.setCornerRadii(radius);
             gradientDrawables[i] = new InsetDrawable(drawable, padding, padding, padding, padding);
-            ;
-            if (step == spread / 14) {
+
+            if (step == spreadUse / 14) {
                 ++hex;
                 step = 0;
             }
             ++step;
         }
+
         shadow = new LayerDrawable(gradientDrawables);
         shadow.setAlpha(opacity);
     }
 
     public void setShadowColor(String shadowHexColor) {
         this.color = shadowHexColor.replace("#", "");
-        init(false);
+        init();
+    }
+
+    public void setOpacity(int opacity) {
+        this.opacity = opacity;
+        init();
     }
 
     /**

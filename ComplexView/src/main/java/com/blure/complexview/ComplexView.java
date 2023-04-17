@@ -292,7 +292,7 @@ public class ComplexView extends RelativeLayout implements View.OnClickListener,
     }
 
     /**
-     * Sets the shadow color of ComplexView
+     * Sets the shadow color of ComplexView. Without opacity in hexcode.
      *
      * @param shadowColorHex shadow color in hex format, for example #000000
      */
@@ -303,6 +303,17 @@ public class ComplexView extends RelativeLayout implements View.OnClickListener,
         }
     }
 
+    /**
+     * Sets the opacity of shadow color of ComplexView
+     *
+     * @param opacity 0..255
+     */
+    public void setShadowAlpha(int opacity) {
+        if (shadow != null) {
+            this.shadow.setOpacity(opacity);
+            setBackground(this.shadow.getShadow());
+        }
+    }
 
     public float getToXScale() {
         return toXScale;
